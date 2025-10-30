@@ -1,0 +1,345 @@
+/* 1. VARIABLE DAN BASE STYLES */
+:root {
+    --primary-color: #212529; /* Warna teks utama (Hitam) */
+    --accent-color: #ff69b4; /* HOT PINK/FUCHIA yang Benar */
+    --soft-pink: #fce4ec; /* Background krem/pink muda untuk hero */
+    --light-bg: #ffffff; /* Background body */
+    --card-bg: #f8f9fa; /* Background card */
+    --text-light: #555;
+    --shadow-light: 0 4px 12px rgba(255, 105, 180, 0.2); 
+}
+
+.dark-theme {
+    --primary-color: #fce4ec; 
+    --accent-color: #ffb6c1; /* Light Pink untuk Dark Mode */
+    --soft-pink: #3d3a3a; 
+    --light-bg: #1c1c1c; 
+    --card-bg: #2d2d2d; 
+    --text-light: #bbb;
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    background-color: var(--light-bg);
+    color: var(--primary-color);
+    margin: 0;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+a { text-decoration: none; color: var(--primary-color); }
+a:hover { color: var(--accent-color); }
+
+section {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h2.section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+    color: var(--accent-color);
+}
+
+/* 2. HEADER (RIBBON) */
+.main-header {
+    background-color: var(--light-bg);
+    box-shadow: var(--shadow-light); 
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem;
+}
+.logo { 
+    font-size: 1.5rem; 
+    font-weight: 700; 
+    color: var(--accent-color); 
+}
+.nav-links a {
+    color: var(--primary-color);
+    position: relative;
+    opacity: 0.8;
+    margin-left: 1.5rem;
+}
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease-in-out;
+}
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+
+/* 3. HERO SECTION */
+.hero-section {
+    background-color: var(--soft-pink);
+    padding: 120px 20px 80px;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.hero-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    width: 100%;
+    gap: 50px;
+}
+.hero-text { flex: 1; max-width: 500px; }
+.job-title { color: var(--accent-color); font-size: 2.5rem; margin: 0 0 1rem; }
+.btn-primary { 
+    background-color: var(--accent-color); 
+    color: white; 
+    border: 1px solid var(--accent-color); 
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-right: 15px;
+    transition: background-color 0.3s;
+}
+.btn-primary:hover {
+    background-color: darken(var(--accent-color), 10%); /* Hover effect */
+}
+.btn-secondary { 
+    background-color: transparent; 
+    color: var(--accent-color); 
+    border: 1px solid var(--accent-color); 
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background-color 0.3s, color 0.3s;
+}
+.btn-secondary:hover {
+    background-color: var(--accent-color);
+    color: white;
+}
+.hero-image img {
+    border: 5px solid var(--accent-color);
+    max-width: 250px;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+    box-shadow: var(--shadow-light);
+}
+
+
+/* 4. INFO BOX (CARD STYLE) */
+.info-box {
+    background-color: var(--card-bg); 
+    padding: 2.5rem; 
+    border-radius: 12px; 
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.1);
+    border: 1px solid rgba(255, 105, 180, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.info-box:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 12px 30px rgba(255, 105, 180, 0.2);
+}
+.dark-theme .info-box {
+    border: 1px solid rgba(255, 182, 193, 0.2);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+
+/* 5. ABOUT ME & SKILLS LAYOUT */
+.content-grid { 
+    display: flex; 
+    gap: 3rem; 
+    margin-top: 2rem; 
+}
+.bio { 
+    flex: 2; 
+}
+.skills-list {
+    flex: 1; 
+    padding-left: 1rem; 
+}
+.skill-item { margin-bottom: 1.5rem; }
+.skill-name { display: block; font-weight: 600; margin-bottom: 0.3rem; color: var(--primary-color); }
+.skill-bar-container {
+    background-color: #e9ecef;
+    border-radius: 5px;
+    height: 10px;
+    overflow: hidden;
+}
+.dark-theme .skill-bar-container { background-color: #3a3a3a; }
+.skill-bar {
+    height: 100%;
+    background-color: var(--accent-color);
+    width: 0;
+    transition: width 1.5s ease-out;
+}
+
+
+/* 6. PROJECTS/PORTFOLIO (Tabel Responsif) */
+.table-wrapper {
+    overflow-x: auto; 
+    -webkit-overflow-scrolling: touch;
+}
+.portfolio-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 0.95rem;
+    text-align: left;
+}
+.portfolio-table th, .portfolio-table td {
+    padding: 12px 15px;
+    border: 1px solid var(--text-light);
+}
+.portfolio-table th {
+    background-color: var(--accent-color);
+    color: white;
+    font-weight: 600;
+}
+.portfolio-table tbody tr:nth-child(even) {
+    background-color: rgba(255, 182, 193, 0.1); 
+}
+.status-done { color: green; font-weight: 600; }
+.status-pending { color: orange; font-weight: 600; }
+
+/* TABLE RESPONSIVE (Stack Card di Mobile) */
+@media screen and (max-width: 600px) {
+    .portfolio-table {
+        border: 0;
+    }
+    .portfolio-table thead {
+        display: none; 
+    }
+    .portfolio-table td {
+        display: block; 
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+        border: none;
+    }
+    .portfolio-table td::before {
+        content: attr(data-label); 
+        position: absolute;
+        left: 10px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: 600;
+        text-align: left;
+        color: var(--accent-color);
+    }
+}
+
+
+/* 7. CONTACT LAYOUT (Form Styling) */
+.contact-section { max-width: 600px; text-align: left; margin: 0 auto; } 
+
+.form-label { display: block; font-weight: 600; margin-top: 1rem; margin-bottom: 0.3rem; color: var(--primary-color); }
+
+.contact-section form input[type="text"],
+.contact-section form input[type="email"],
+.contact-section form select,
+.contact-section form textarea {
+    width: 100%; 
+    padding: 0.8rem;
+    border: 1px solid var(--accent-color); 
+    border-radius: 5px;
+    background-color: var(--card-bg);
+    color: var(--primary-color);
+    box-sizing: border-box; 
+    font-family: inherit; 
+    margin-bottom: 1rem;
+}
+.contact-section form textarea {
+    resize: vertical; 
+    min-height: 100px; 
+}
+
+.radio-group label, .checkbox-group label {
+    font-weight: normal;
+    margin-left: 0.5rem;
+    margin-right: 1rem;
+    display: inline-block;
+}
+.radio-group input[type="radio"], .checkbox-group input[type="checkbox"] {
+    accent-color: var(--accent-color); 
+}
+.checkbox-group { margin-top: 1.5rem; margin-bottom: 1.5rem;}
+
+.cta-button {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 1rem;
+    transition: opacity 0.3s;
+}
+.cta-button:hover {
+    opacity: 0.9;
+}
+
+
+/* 8. FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--card-bg);
+    border-top: 1px solid var(--text-light);
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+footer a {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+
+/* 9. ANIMATION & RESPONSIVE */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 900px) {
+    .hero-content { flex-direction: column; text-align: center; }
+    .hero-image { order: 1; justify-content: center; margin-bottom: 2rem; }
+    .hero-text { order: 2; max-width: 100%; text-align: center; }
+    .social-icons { justify-content: center; }
+    .content-grid { flex-direction: column; }
+    .skills-list { margin-top: 2rem; }
+    .info-box { padding: 1.5rem; }
+}
+
+@media (max-width: 600px) {
+    .form-row { flex-direction: column; gap: 0; }
+    .form-row input { margin-bottom: 1rem; }
+    /* Tambahkan style untuk form di mobile */
+    .contact-section form input, 
+    .contact-section form select, 
+    .contact-section form textarea {
+        margin-bottom: 0.5rem;
+    }
+}
